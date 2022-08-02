@@ -15,7 +15,8 @@ $session =& CRM_Core_Session::singleton();
 $civimobile_vars['loggedInContactID'] = $session->get('userID');
 
 // extension include path
-$includePath = CRM_Core_Resources::singleton()->getUrl('com.webaccessglobal.module.civimobile') . DIRECTORY_SEPARATOR;
+$res = Civi::resources();
+$ext = CRM_Civimobile_ExtensionUtil::LONG_NAME;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -25,15 +26,15 @@ $includePath = CRM_Core_Resources::singleton()->getUrl('com.webaccessglobal.modu
   <?php //print $civimobile_page_settings['favicon'] ?>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" >
-  <link rel="stylesheet" href="<?php print $includePath;?>libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-  <script type="text/javascript" src="<?php print $includePath; ?>libraries/jquery.mobile-1.4.5/jquery-1.10.2.min.js"></script>
-  <script type="text/javascript" src="<?php print $includePath; ?>libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script type="text/javascript" src="<?php print $includePath; ?>js/common.js"></script>
+  <link rel="stylesheet" href="<?php print $res->getUrl($ext, $res->filterMinify($ext, 'libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css'), TRUE);?>" />
+  <script type="text/javascript" src="<?php print $res->getUrl($ext, $res->filterMinify($ext, 'libraries/jquery.mobile-1.4.5/jquery-1.10.2.min.js'), TRUE); ?>"></script>
+  <script type="text/javascript" src="<?php print $res->getUrl($ext, $res->filterMinify($ext, 'libraries/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js'), TRUE); ?>"></script>
+  <script type="text/javascript" src="<?php print $res->getUrl($ext, $res->filterMinify($ext, 'js/common.js'), TRUE); ?>"></script>
   <script type="text/javascript">
     CRM.url({'back': '<?php print CRM_Utils_System::url('*path*', '*query*', true, null, false);?>', 'front': '<?php print CRM_Utils_System::url('*path*','*query*' , true, null, false);?>'});
   </script>
-  <script type="text/javascript" src="<?php print $includePath; ?>js/events.js"></script>
-  <link type="text/css" rel="stylesheet" href="<?php print $includePath; ?>css/custom.css"/>
+  <script type="text/javascript" src="<?php print $res->getUrl($ext, $res->filterMinify($ext, 'js/events.js'), TRUE); ?>"></script>
+  <link type="text/css" rel="stylesheet" href="<?php print $res->getUrl($ext, $res->filterMinify($ext, 'css/custom.css'), TRUE); ?>"/>
   <script type="text/javascript">
     // Define globally default profile ids that will be used when creating new
     // records.
