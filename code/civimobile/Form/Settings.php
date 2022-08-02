@@ -18,7 +18,7 @@ class civimobile_Form_Settings extends CRM_Core_Form {
       return;
     }
     reset($result['values']);
-    while(list($k,$v) = each($result['values'])) {
+    foreach ($result['values'] as $k => $v) {
       if(array_key_exists('group_type', $v) && $v['is_active'] == 1) {
         $id = $v['id'];
         // Ensure it's not a mixed type profile, because you cannot edit mixed type
